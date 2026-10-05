@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- =========================================================
+         BASIC PAGE INFORMATION
+         ========================================================= -->
+
+    <!-- Allows the website to display special characters correctly -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on phones, tablets, and computers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Description that search engines can use -->
+    <meta name="description"
+        content="Professional portfolio of a first-year English student at the University of New Haven.">
+
+    <!-- The title shown in the browser tab -->
+    <title>Your Name | English Student & Writer</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONT
+         =========================================================
+         Merriweather is used for headings because it has a
+         traditional literary feel. Inter is used for body text
+         because it is clean and easy to read.
+         ========================================================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================================================
+         CSS STYLES
+         ========================================================= -->
+
+    <style>
+
+        /* ---------------------------------------------------------
+           1. COLOR VARIABLES
+           ---------------------------------------------------------
+           CSS variables make it easy to change your entire
+           website's color scheme later.
+
+           To change the colors, edit these values.
+           --------------------------------------------------------- */
+
+        :root {
+            --navy: #17253d;
+            --dark-navy: #0e1829;
+            --blue: #315d8f;
+            --light-blue: #eaf1f8;
+            --cream: #f8f7f3;
+            --white: #ffffff;
+            --text: #273142;
+            --muted: #657084;
+            --border: #dce2e9;
+            --accent: #b68a4c;
+
+            --max-width: 1100px;
+            --shadow: 0 10px 30px rgba(23, 37, 61, 0.08);
+        }
+
+
+        /* ---------------------------------------------------------
+           2. BASIC RESET
+           ---------------------------------------------------------
+           Browsers have default margins and spacing.
+           This removes them so we have more control.
+           --------------------------------------------------------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Smooth scrolling when navigation links are clicked */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* Main body styling */
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+
+        /* Prevent images from overflowing their containers */
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* Make links inherit the site's colors */
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* Consistent content width throughout the website */
+
+        .container {
+            width: min(90%, var(--max-width));
+            margin: 0 auto;
+        }
+
+
+        /* ---------------------------------------------------------
+           3. TYPOGRAPHY
+           --------------------------------------------------------- */
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Merriweather", Georgia, serif;
+            line-height: 1.3;
+            color: var(--navy);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+
+        /* ---------------------------------------------------------
+           4. NAVIGATION BAR
+           ---------------------------------------------------------
+           This stays at the top while the visitor scrolls.
+           --------------------------------------------------------- */
+
+        header {
+            background-color: rgba(248, 247, 243, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+
+        /* ---------------------------------------------------------
+           5. HERO / HOME SECTION
+           ---------------------------------------------------------
+           This is the first thing visitors see.
+           It introduces you and gives them a reason to continue
+           exploring your portfolio.
+           --------------------------------------------------------- */
+
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            padding: 6rem 0;
+            background:
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(49, 93, 143, 0.10),
+                    transparent 35%
+                );
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .eyebrow {
+            color: var(--blue);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+
+        /* Buttons */
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.85rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .button-primary {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .button-primary:hover {
+            background-color: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background-color: var(--white);
+            color: var(--navy);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+
+        /* ---------------------------------------------------------
+           6. PHOTO AREA
+           ---------------------------------------------------------
+           Replace the placeholder with your own professional photo.
+
+           Example:
+           <img src="images/profile.jpg" alt="Your Name">
+           --------------------------------------------------------- */
+
+        .profile-photo {
+            width: 280px;
+            height: 340px;
+            margin: 0 auto;
+            border-radius: 12px;
+            background-color: var(--light-blue);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blue);
+            padding: 2rem;
+        }
+
+        .profile-photo strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+
+        /* ---------------------------------------------------------
+           7. GENERAL SECTION STYLING
+           --------------------------------------------------------- */
+
+        section {
+            padding: 6rem 0;
+            scroll-margin-top: 72px;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+
+        /* ---------------------------------------------------------
+           8. ABOUT SECTION
+           --------------------------------------------------------- */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .interest-box {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .interest-box ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .interest-box li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .interest-box li:last-child {
+            border-bottom: none;
+        }
+
+        .interest-box li::before {
+            content: "→";
+            color: var(--accent);
+            margin-right: 0.6rem;
+            font-weight: bold;
+        }
+
+
+        /* ---------------------------------------------------------
+           9. EXPERIENCE SECTION
+           --------------------------------------------------------- */
+
+        .experience-card {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-date {
+            color: var(--blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .experience-card ul {
+            padding-left: 1.2rem;
+            color: var(--muted);
+        }
+
+        .experience-card li {
+            margin-bottom: 0.5rem;
+        }
+
+
+        /* ---------------------------------------------------------
+           10. PROJECT CARDS
+           ---------------------------------------------------------
+           Each project gets its own card.
+
+           You can duplicate these cards as you complete more
+           academic or creative projects.
+           --------------------------------------------------------- */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(23, 37, 61, 0.12);
+        }
+
+        .project-number {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.25rem;
+        }
+
+        .project-card h4 {
+            color: var(--navy);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-card p {
+            font-size: 0.92rem;
+        }
+
+        .project-tools {
+            margin-top: auto;
+            padding-top: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--light-blue);
+            color: var(--blue);
+            padding: 0.35rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+
+
+        /* ---------------------------------------------------------
+           11. SKILLS SECTION
+           --------------------------------------------------------- */
+
+        .skills-section {
+            background-color: var(--navy);
+        }
+
+        .skills-section h2,
+        .skills-section p {
+            color: var(--white);
+        }
+
+        .skills-section .section-heading p {
+            color: #cbd5e1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 1.75rem;
+            border-radius: 10px;
+        }
+
+        .skill-category h3 {
+            color: var(--white);
+            font-family: "Inter", sans-serif;
+            font-size: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .skill-category li {
+            color: #cbd5e1;
+            padding: 0.35rem 0;
+        }
+
+        .skill-category li::before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 0.6rem;
+        }
+
+
+        /* ---------------------------------------------------------
+           12. CAREER GOALS
+           --------------------------------------------------------- */
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .goals-text p {
+            margin-bottom: 1rem;
+        }
+
+        .goal-list {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .goal-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .goal-item:last-child {
+            border-bottom: none;
+        }
+
+        .goal-icon {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+
+        /* ---------------------------------------------------------
+           13. CONTACT SECTION
+           --------------------------------------------------------- */
+
+        .contact-section {
+            background-color: var(--light-blue);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 3rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            display: block;
+            color: var(--blue);
+            font-weight: 600;
+            margin: 0.75rem 0;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ---------------------------------------------------------
+           14. CONTACT FORM
+           ---------------------------------------------------------
+           GitHub Pages is a static hosting service, so it cannot
+           process form submissions by itself.
+
+           The form below uses JavaScript to open the visitor's
+           email program with the message filled in.
+
+           For a true online form, services such as Formspree can
+           be connected later.
+           --------------------------------------------------------- */
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font: inherit;
+            color: var(--text);
+            background-color: #fafafa;
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(49, 93, 143, 0.1);
+        }
+
+
+        /* ---------------------------------------------------------
+           15. FOOTER
+           --------------------------------------------------------- */
+
+        footer {
+            background-color: var(--dark-navy);
+            color: #cbd5e1;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+        }
+
+
+        /* ---------------------------------------------------------
+           16. MOBILE RESPONSIVE DESIGN
+           ---------------------------------------------------------
+           These rules activate on smaller screens.
+
+           The desktop grid becomes a single-column layout,
+           making everything easier to read on phones.
+           --------------------------------------------------------- */
+
+        @media (max-width: 850px) {
+
+            .hero-grid,
+            .about-grid,
+            .goals-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .button-group {
+                justify-content: center;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .profile-photo {
+                margin-top: 1rem;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            /* Make the navigation fit on smaller screens */
+
+            .navbar {
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 0.75rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 5rem 0;
+            }
+
+            .profile-photo {
+                width: 220px;
+                height: 270px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+         =========================================================
+         These links take visitors to different sections of the
+         one-page website.
+         ========================================================= -->
+
+    <header>
+        <nav class="navbar container">
+
+            <!-- Replace "Your Name" with your actual name -->
+            <a href="#home" class="logo">Your Name</a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HOME / HERO SECTION
+             ===================================================== -->
+
+        <section id="home" class="hero">
+
+            <div class="container hero-grid">
+
+                <div>
+
+                    <p class="eyebrow">
+                        English Student · Writer · Creative Thinker
+                    </p>
+
+                    <h1>
+                        Building a future through
+                        <span>language and storytelling.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        I am a first-year English student at the
+                        University of New Haven developing my skills
+                        in writing, research, critical thinking, and
+                        communication while exploring a future in
+                        education and writing.
+                    </p>
+
+                    <div class="button-group">
+
+                        <a href="#projects" class="button button-primary">
+                            Explore My Projects
+                        </a>
+
+                        <a href="#contact" class="button button-secondary">
+                            Get in Touch
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PROFILE PHOTO PLACEHOLDER
+                     =================================================
+                     Replace this entire div with an image when
+                     you are ready.
+
+                     Example:
+
+                     <img
+                       src="images/profile.jpg"
+                       alt="Professional photo of Your Name"
+                       class="profile-photo"
+                     >
+                     ================================================= -->
+
+                <div class="profile-photo">
+
+                    <div>
+                        <strong>Your Photo</strong>
+                        <span>Add a professional photo here.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ABOUT SECTION
+             ===================================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        About Me
+                    </span>
+
+                    <h2>
+                        A student, writer, and lifelong learner.
+                    </h2>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+
+                        <p>
+                            I am a first-year English student at the
+                            University of New Haven in West Haven,
+                            Connecticut, with a strong interest in
+                            writing, literature, communication, and
+                            education. I chose to study English because
+                            I enjoy using writing and language to explore
+                            ideas, understand different perspectives,
+                            and communicate effectively with others.
+                        </p>
+
+                        <p>
+                            Through my coursework, I am developing my
+                            skills in critical reading, research,
+                            analysis, and written communication. I am
+                            also expanding my understanding of artificial
+                            intelligence through my AI course and
+                            exploring how emerging technology can work
+                            alongside strong communication skills.
+                        </p>
+
+                        <p>
+                            My experience working for the Board of
+                            Elections in New York City has also helped
+                            me develop professionalism, organization,
+                            responsibility, attention to detail, and
+                            experience working with members of the
+                            community.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Academic interests -->
+
+                    <div class="interest-box">
+
+                        <h3>Academic Interests</h3>
+
+                        <ul>
+                            <li>Creative Writing</li>
+                            <li>Literature & Literary Analysis</li>
+                            <li>Education</li>
+                            <li>Research & Communication</li>
+                            <li>Digital Storytelling</li>
+                            <li>Artificial Intelligence</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EXPERIENCE SECTION
+             ===================================================== -->
+
+        <section id="experience">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Experience
+                    </span>
+
+                    <h2>
+                        Learning through real-world experience.
+                    </h2>
+
+                    <p>
+                        My professional experience has helped me build
+                        skills that complement my academic education.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <div class="experience-header">
+
+                        <div>
+                            <h3>
+                                Board of Elections in New York City
+                            </h3>
+
+                            <p>
+                                Election Support Staff
+                            </p>
+                        </div>
+
+                        <!-- Replace with your actual dates -->
+
+                        <span class="experience-date">
+                            [Year – Year]
+                        </span>
+
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Worked in a professional public-service
+                            environment while supporting election-related
+                            operations.
+                        </li>
+
+                        <li>
+                            Developed strong organizational skills and
+                            attention to detail.
+                        </li>
+
+                        <li>
+                            Communicated respectfully and professionally
+                            with members of the public and coworkers.
+                        </li>
+
+                        <li>
+                            Gained experience understanding the importance
+                            of accuracy, responsibility, and professionalism
+                            in a public-facing environment.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROJECTS SECTION
+             ===================================================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Academic & Creative Work
+                    </span>
+
+                    <h2>
+                        Projects that showcase my potential.
+                    </h2>
+
+                    <p>
+                        My projects allow me to apply writing, creativity,
+                        critical thinking, and technology in different ways.
+                    </p>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROJECT 01
+                        </span>
+
+                        <h3>
+                            A Collection of Poetry
+                        </h3>
+
+                        <p class="project-description">
+                            Created a portfolio of original poems exploring
+                            different ideas, emotions, and perspectives
+                            through creative language.
+                        </p>
+
+
+                        <h4>
+                            Skills Demonstrated
+                        </h4>
+
+                        <p>
+                            Creative writing, imagery, tone, voice,
+                            word choice, revision, and self-expression.
+                        </p>
+
+
+                        <h4>
+                            What I Learned
+                        </h4>
+
+                        <p>
+                            I learned how intentional language and
+                            structure can influence how a reader
+                            experiences a piece of writing.
+                        </p>
+
+
+                        <h4>
+                            Why It Matters
+                        </h4>
+
+                        <p>
+                            This project demonstrates creativity,
+                            attention to language, and my continued
+                            development as a writer.
+                        </p>
+
+
+                        <div class="project-tools">
+
+                            <span class="tag">
+                                Creative Writing
+                            </span>
+
+                            <span class="tag">
+                                Poetry
+                            </span>
+
+                            <span class="tag">
+                                Editing
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROJECT 02
+                        </span>
+
+                        <h3>
+                            Interactive Storytelling
+                        </h3>
+
+                        <p class="project-description">
+                            Designed and created an interactive,
+                            story-driven video game using Twine.
+                            Players make choices that influence
+                            the direction and outcome of the story.
+                        </p>
+
+
+                        <h4>
+                            Skills Demonstrated
+                        </h4>
+
+                        <p>
+                            Creative writing, character development,
+                            narrative design, branching storytelling,
+                            and digital creativity.
+                        </p>
+
+
+                        <h4>
+                            What I Learned
+                        </h4>
+
+                        <p>
+                            I learned how storytelling can extend beyond
+                            traditional writing and how choices can change
+                            the way an audience experiences a narrative.
+                        </p>
+
+
+                        <h4>
+                            Why It Matters
+                        </h4>
+
+                        <p>
+                            This project combines my interest in English
+                            with technology and demonstrates my willingness
+                            to experiment with new forms of storytelling.
+                        </p>
+
+
+                        <div class="project-tools">
+
+                            <span class="tag">
+                                Twine
+                            </span>
+
+                            <span class="tag">
+                                Storytelling
+                            </span>
+
+                            <span class="tag">
+                                Narrative Design
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROJECT 03
+                        </span>
+
+                        <h3>
+                            Creating an Original Story
+                        </h3>
+
+                        <p class="project-description">
+                            Developed an original story from the initial
+                            concept through character development,
+                            setting, plot, and themes.
+                        </p>
+
+
+                        <h4>
+                            Skills Demonstrated
+                        </h4>
+
+                        <p>
+                            Creative writing, character development,
+                            dialogue, plot development, storytelling,
+                            and revision.
+                        </p>
+
+
+                        <h4>
+                            What I Learned
+                        </h4>
+
+                        <p>
+                            I learned how planning, revision, consistency,
+                            and characterization work together to create
+                            a cohesive and engaging narrative.
+                        </p>
+
+
+                        <h4>
+                            Why It Matters
+                        </h4>
+
+                        <p>
+                            This project demonstrates my ability to take
+                            an original idea and develop it into a complete
+                            piece of writing.
+                        </p>
+
+
+                        <div class="project-tools">
+
+                            <span class="tag">
+                                Creative Writing
+                            </span>
+
+                            <span class="tag">
+                                Storytelling
+                            </span>
+
+                            <span class="tag">
+                                Character Development
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SKILLS SECTION
+             ===================================================== -->
+
+        <section id="skills" class="skills-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Skills
+                    </span>
+
+                    <h2>
+                        Skills I'm building for the future.
+                    </h2>
+
+                    <p>
+                        My education is helping me develop a combination
+                        of communication, creative, analytical, and
+                        technological skills.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+
+                    <!-- Writing skills -->
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Writing & Communication
+                        </h3>
+
+                        <ul>
+                            <li>Creative Writing</li>
+                            <li>Academic Writing</li>
+                            <li>Editing & Proofreading</li>
+                            <li>Research Writing</li>
+                            <li>Presentation</li>
+                            <li>Written Communication</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Critical thinking skills -->
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Research & Critical Thinking
+                        </h3>
+
+                        <ul>
+                            <li>Literary Analysis</li>
+                            <li>Critical Reading</li>
+                            <li>Research</li>
+                            <li>Source Evaluation</li>
+                            <li>Argument Development</li>
+                            <li>Problem Solving</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Technology and AI -->
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Technology & AI
+                        </h3>
+
+                        <ul>
+                            <li>Twine</li>
+                            <li>Microsoft Word</li>
+                            <li>Google Docs</li>
+                            <li>Digital Storytelling</li>
+                            <li>Generative AI</li>
+                            <li>AI-Assisted Workflows</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CAREER GOALS SECTION
+             ===================================================== -->
+
+        <section id="goals">
+
+            <div class="container">
+
+                <div class="goals-grid">
+
+
+                    <div class="goals-text">
+
+                        <span class="section-label">
+                            Career Goals
+                        </span>
+
+                        <h2>
+                            Where I'm headed.
+                        </h2>
+
+                        <p>
+                            As I continue my education, I am interested
+                            in exploring a career connected to education,
+                            potentially working with a Board of Education.
+                        </p>
+
+                        <p>
+                            At the same time, I want to continue developing
+                            as a writer and explore opportunities to write
+                            creatively and professionally.
+                        </p>
+
+                        <p>
+                            My goal is to combine the communication,
+                            research, and writing skills I develop through
+                            my English education with opportunities to
+                            contribute to and support my community.
+                        </p>
+
+                    </div>
+
+
+                    <div class="goal-list">
+
+                        <div class="goal-item">
+
+                            <span class="goal-icon">01</span>
+
+                            <div>
+                                <strong>
+                                    Build my writing skills
+                                </strong>
+
+                                <p>
+                                    Continue developing my creative,
+                                    academic, and professional writing.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="goal-item">
+
+                            <span class="goal-icon">02</span>
+
+                            <div>
+                                <strong>
+                                    Explore education
+                                </strong>
+
+                                <p>
+                                    Learn more about opportunities within
+                                    education and public service.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="goal-item">
+
+                            <span class="goal-icon">03</span>
+
+                            <div>
+                                <strong>
+                                    Continue learning technology
+                                </strong>
+
+                                <p>
+                                    Develop responsible and practical
+                                    skills with AI and digital tools.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="goal-item">
+
+                            <span class="goal-icon">04</span>
+
+                            <div>
+                                <strong>
+                                    Grow as a writer
+                                </strong>
+
+                                <p>
+                                    Continue creating stories, poetry,
+                                    and other forms of original writing.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACT SECTION
+             ===================================================== -->
+
+        <section id="contact" class="contact-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Contact
+                    </span>
+
+                    <h2>
+                        Let's connect.
+                    </h2>
+
+                    <p>
+                        I'm interested in connecting with educators,
+                        writers, professionals, and others who share
+                        an interest in communication, education,
+                        literature, and creative work.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <!-- Contact information -->
+
+                    <div class="contact-info">
+
+                        <h3>
+                            Contact Information
+                        </h3>
+
+                        <!-- Replace with your real email -->
+
+                        <a
+                            href="mailto:your.email@example.com"
+                            class="contact-link">
+                            your.email@example.com
+                        </a>
+
+
+                        <!-- Replace with your LinkedIn URL -->
+
+                        <a
+                            href="https://www.linkedin.com/"
+                            target="_blank"
+                            rel="noopener"
+                            class="contact-link">
+                            LinkedIn
+                        </a>
+
+
+                        <p>
+                            University of New Haven<br>
+                            West Haven, Connecticut
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Contact form -->
+
+                    <form
+                        class="contact-form"
+                        onsubmit="sendEmail(event)">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                required></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="button button-primary">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Your Name · English Student · University of New Haven
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         =========================================================
+         GitHub Pages cannot directly process contact forms.
+
+         This small script creates an email and opens the visitor's
+         default email application.
+
+         IMPORTANT:
+         Replace "your.email@example.com" with your actual email.
+         ========================================================= -->
+
+    <script>
+
+        function sendEmail(event) {
+
+            // Prevent the page from refreshing
+            event.preventDefault();
+
+            // Get the information entered into the form
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // YOUR EMAIL ADDRESS GOES HERE
+            const yourEmail = "your.email@example.com";
+
+            // Create the subject of the email
+            const subject = encodeURIComponent(
+                "Portfolio Contact from " + name
+            );
+
+            // Create the body of the email
+            const body = encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\n\nMessage:\n" + message
+            );
+
+            // Open the visitor's email application
+            window.location.href =
+                "mailto:" + yourEmail +
+                "?subject=" + subject +
+                "&body=" + body;
+        }
+
+    </script>
+
+</body>
+
+</html>
